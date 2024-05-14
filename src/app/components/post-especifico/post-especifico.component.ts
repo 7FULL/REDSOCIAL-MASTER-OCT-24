@@ -4,11 +4,12 @@ import { PostService } from '../../services/post.service';
 import { Post } from '../../interfaces/post';
 import { UserService } from '../../services/user.service';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-post-especifico',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './post-especifico.component.html',
   styleUrl: './post-especifico.component.css'
 })
@@ -64,7 +65,7 @@ export class PostEspecificoComponent implements OnInit {
     let username = ""
 
     if(this.userService.userData.username != ""){
-      username = this.userService.userData.username
+      username = this.userService.userData.username!
     }else{
       username = "Anónimo"
     }
@@ -74,5 +75,11 @@ export class PostEspecificoComponent implements OnInit {
     this.service.añadirComentario(this.id, this.comentario)
 
     this.comentario = ""
+  }
+
+  copiarLink(){
+    navigator.clipboard.writeText(window.location.href)
+
+    alert("Texto copiado(NO SE USAN ALERTS!!!!)")
   }
 }

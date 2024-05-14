@@ -1,13 +1,15 @@
 import { Injectable, OnInit } from '@angular/core';
 import { User } from '../interfaces/user';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService implements OnInit{
+export class UserService{
 
-  constructor() { }
+  constructor() {
+    this.iniciar()
+  }
 
   estaLogueado: boolean = false
   private esAdministrador: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
@@ -23,45 +25,19 @@ export class UserService implements OnInit{
     isAdmin: false
   }
 
-  ngOnInit(): void {
+  //SIMULAMOS BASE DE DATOS
+  usuarios: Array<User> = []
+
+  iniciar(): void {
     let usuarios = localStorage.getItem("users")
 
     if(usuarios != null){
       const arrayUsers: Array<User> = JSON.parse(usuarios).usuariosJson
-
       this.usuarios = arrayUsers
     }
   }
 
-  //SIMULAMOS BASE DE DATOS
-  usuarios: Array<User> = [
-    {
-      username: "admin",
-      nombre: "admin",
-      apellido: "admin",
-      email: "admin",
-      password: "admin",
-      isAdmin: true
-    },
-    {
-      username: "admin2",
-      nombre: "admin2",
-      apellido: "admin2",
-      email: "admin2",
-      password: "admin2",
-      isAdmin: false
-    },
-    {
-      username: "admin3",
-      nombre: "admin3",
-      apellido: "admin3",
-      email: "admin3",
-      password: "admin3",
-      isAdmin: false
-    },
-  ] 
-
-  login(nombreDeUsuario: string, contraseña: string): Boolean{
+  login(nombreDeUsuario: string, contraseña: string): Boolean{    
     for (let i = 0; i < this.usuarios.length; i++) {
       if(nombreDeUsuario == this.usuarios[i].email || nombreDeUsuario == this.usuarios[i].username){
         
@@ -70,12 +46,12 @@ export class UserService implements OnInit{
           this.userData = this.usuarios[i]
 
           this.estaLogueado = true
-          this.esAdministrador.next(this.userData.isAdmin)
+          this.esAdministrador.next(this.userData.isAdmin!)
 
           return true
         }
       }  
-    }
+  }
 
     this.userData = {
       username: "",
@@ -129,5 +105,19 @@ export class UserService implements OnInit{
 
   closeSesion(){
     this.estaLogueado = false
+  }
+
+  getByMail(email:string): User{
+    for (let i = 0; i < this.usuarios.length; i++) {
+      
+      console.log(email)
+      console.log("2:" + this.usuarios[i].email)
+      
+      if (this.usuarios[i].email == email) {
+        return this.usuarios[i]
+      }
+    }
+
+    return {}
   }
 }

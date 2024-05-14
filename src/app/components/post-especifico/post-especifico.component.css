@@ -40,3 +40,7 @@ input{
     width: 100%;
     margin-top: 10px;
 }
+
+.pequeño{
+    font-size: medium;
+}

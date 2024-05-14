@@ -1,5 +1,7 @@
 <div class="container">
     <div class="card">
+        <p class="pequeño" routerLink="/perfil/{{post.autor?.email}}">{{post.autor?.username}}</p>
+
         <img [src]="post.img">
     
         @if (tieneLike()) {
@@ -14,5 +16,11 @@
             }
         </div>
         <input type="text" (keydown.enter)="anadirComentario()" minlength="1" placeholder="comentario" [(ngModel)]="comentario">  
+    
+        <p (click)="copiarLink()">
+            <span class="material-symbols-sharp">
+                share
+            </span>
+        </p>
     </div>
 </div>

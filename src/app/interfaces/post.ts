@@ -1,6 +1,5 @@
 import { User } from "./user";
 
-//TODO: COMPARTIR
 //TODO: INTERNACIONALIZACIÓN
 //TODO: FAVORITOS
 

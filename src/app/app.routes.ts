@@ -15,6 +15,10 @@ export const routes: Routes = [
             {
                 path:"postEspecifico/:id",
                 loadComponent: ()=> import ("./components/post-especifico/post-especifico.component").then(m => m.PostEspecificoComponent)
+            },
+            {
+                path:"perfil/:email",
+                loadComponent: ()=> import ("./components/perfil/perfil.component").then(m => m.PerfilComponent)
             }
         ]
     },
