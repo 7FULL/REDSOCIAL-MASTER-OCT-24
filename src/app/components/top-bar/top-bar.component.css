@@ -1,0 +1,21 @@
+.top{
+    height: 50px;
+    background-color: rgb(25, 118, 210);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.logo{
+    margin-left: 25px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    cursor: pointer;
+}
+
+input[type="button"]{
+    margin-right: 25px;
+}

@@ -1,0 +1,20 @@
+<div class="top">
+    <div>
+        <p class="logo" routerLink="">SUPERREDSOCIAL</p>
+    </div>
+    <p class="logo" routerLink="posts">POSTS</p>
+    <div>
+        <p>
+            <input type="search" placeholder="Busqueda...">
+        </p>
+    </div>
+    <div>
+        <p>
+            <input type="button" [value]="textoDeBoton" (click)="cambiarFormulario()">
+        </p>
+    </div>
+</div>
+ 
+@if(formularioAbierto){
+    <login (usuarioLogueado)="cambiarFormulario(true)" (cerrarFormulario)="cambiarFormulario()"></login>
+}

@@ -1,0 +1,47 @@
+.fondo{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.413);
+    width: 100%;
+    height: 100%;
+    margin-top: -50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+ 
+form{
+    width: 300px;
+    height: fit-content;
+    padding: 25px;
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form input, form button{
+    width: 100%;
+    margin-top: 25px;
+}
+
+form > input{
+    margin-top: 0;
+}
+
+.registerText{
+    text-align: center;
+    font-size: small;
+    color: lightseagreen;
+}
+
+.iconoDeCierre{
+    position: relative;
+    top: -20px;
+    right: 0;
+    left: 97%;
+    cursor: pointer;
+}

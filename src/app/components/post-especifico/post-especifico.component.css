@@ -1,0 +1,42 @@
+.rojo{color: red;}
+
+.card{
+    background-color: rgb(242, 242, 242);
+    border: 2px lightgray solid;
+    border-radius: 10px;
+
+    width: 200px;
+
+    padding: 25px;
+    margin: 10%;
+}
+
+p{
+    font-size: 100px;
+    margin: 0;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+img{
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comentarioContainer{
+    margin-top: 10px;
+}
+
+.comentarioContainer p{
+    font-size: medium;
+}
+
+input{
+    width: 100%;
+    margin-top: 10px;
+}

@@ -1,0 +1,43 @@
+<div class="fondo">
+    @if(!showingRegisterForm){
+        <!-- Formulario de login -->
+        <form (submit)="login()"
+            [formGroup]="formularioLogin"
+        >
+        <div class="iconoDeCierre" (click)="cerrarForm()">
+            <span class="material-symbols-sharp">
+                close
+            </span>
+        </div>
+            <input type="text"
+            placeholder="Usuario" 
+            formControlName="usuario"
+            >
+            <div>
+                <input type="password"
+                formControlName="contraseña"
+                >
+            </div>
+            <button [disabled]="formularioLogin.invalid">Iniciar sesion</button>
+            <p class="registerText" (click)="toggleForm()">¿No tienes una cuenta? Registrate</p>
+        </form>
+    }@else {
+        <!-- Formulario de registro -->
+        <form (submit)="registro()" [formGroup]="formularioRegistro">
+            <div class="iconoDeCierre"  (click)="cerrarForm()">
+                <span class="material-symbols-sharp">
+                    close
+                </span>
+            </div>
+            <input type="text" placeholder="Usuario" formControlName="usuario">
+            <div>
+                <input type="password" placeholder="Contraseña" formControlName="contraseña">
+            </div>
+            <div>
+                <input type="password" placeholder="Confirmar contraseña" formControlName="confirmarContraseña">
+            </div>
+            <button [disabled]="formularioRegistro.invalid">Registrarse</button>
+            <p class="registerText" (click)="toggleForm()">¿Ya tienes una cuenta? Inicia sesion</p>
+        </form>
+    }
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card">
+        <img [src]="post.img">
+    
+        @if (tieneLike()) {
+            <p (click)="quitarLike()" class="rojo">♥</p>
+        }@else {
+            <p (click)="darLike()">♥</p>
+        }
+
+        <div class="comentarioContainer">
+            @for(comentario of post.comentarios; track $index){
+                <p>{{ comentario }}</p>
+            }
+        </div>
+        <input type="text" (keydown.enter)="anadirComentario()" minlength="1" placeholder="comentario" [(ngModel)]="comentario">  
+    </div>
+</div>
